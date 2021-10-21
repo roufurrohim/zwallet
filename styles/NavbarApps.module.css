@@ -1,0 +1,54 @@
+.nav {
+    height: 120px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 0px 0px 30px 30px;
+}
+
+.contentNav {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleNav {
+    margin-left: 150px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 29px;
+    line-height: 40px;
+    color: #6379F4;
+}
+
+.profileNav {
+    padding-right: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center !important;
+}
+
+.imageProfileNav {
+    border-radius: 12px;
+}
+
+.nameProfileNav {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 31px;
+    text-align: center;
+    color: #3A3D42;
+}
+
+.telpProfileNav {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    color: rgba(58, 61, 66, 0.9);
+}
+
+.iconProfileNav {
+    color: #4D4B57;
+}

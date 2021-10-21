@@ -1,0 +1,157 @@
+.infoBalance {
+  background: #6379f4;
+  border-radius: 20px;
+  height: 190px;
+}
+
+.balance {
+  padding: 30px;
+}
+
+.titleBalance {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  color: #e0e0e0;
+}
+
+.debit {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 55px;
+  color: #ffffff;
+}
+
+.telp {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  padding-top: 10px;
+  color: #dfdcdc;
+}
+
+.btnTf {
+  width: 162px;
+  height: 57px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 15px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #ffffff;
+}
+
+.btnTf:hover {
+  color: #fff;
+}
+
+.iconTf {
+  color: #b5b0ed;
+  margin-right: 10px;
+}
+
+.income {
+  width: 50%;
+  height: 426px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+}
+
+.infoIncome {
+  padding: 30px;
+}
+
+.iconIncome {
+  color: #1ec15f;
+}
+
+.titleIncome {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #6a6a6a;
+}
+
+.totalIncome {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #3a3d42;
+  padding-top: 0px;
+}
+
+.iconExpnse {
+  color: #ff5b37;
+}
+
+.dbdHistory {
+  width: 42%;
+  height: 426px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  margin-left: 80px;
+  padding: 30px;
+}
+
+.btnAll {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #6379F4;
+}
+
+.btnAll:hover {
+  color: #6379F4;
+}
+
+.imageProfileNav {
+  border-radius: 12px;
+}
+
+.nameProfileNav {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 31px;
+  color: #3A3D42;
+}
+
+.statusTrans {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #7A7886;
+}
+
+.colorGreen {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  color: #1EC15F;
+}
+
+.colorRed {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  color: #FF5B37;
+}

@@ -1,0 +1,28 @@
+.contentFooter {
+    padding: 20px;
+    height: 68px;
+    background: #6379F4;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.reserved {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: rgba(239, 239, 239, 0.9);
+    padding-left: 150px;
+}
+
+.contactFooter {
+    display: flex;
+    justify-content:flex-end;
+    padding-right: 200px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    color: #EFEFEF;
+}

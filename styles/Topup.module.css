@@ -1,0 +1,200 @@
+.content {
+  height: 100vh;
+  padding: 50px;
+}
+
+.sidebar {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  width: 70%;
+  height: 111vh;
+  padding: 50px;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+
+.navItem {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 31px;
+  color: rgba(58, 61, 66, 0.8);
+  cursor: pointer;
+}
+
+.navItemLogout {
+  margin-top: 570px !important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 31px;
+  color: rgba(58, 61, 66, 0.8);
+  cursor: pointer;
+}
+
+.successContent {
+  height: 111vh;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+}
+
+.titleSuccess {
+  width: 70px;
+  height: 70px;
+  background-color: #1ec15f;
+  padding: 20px;
+  color: #ffffff;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.noteSuccess {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #3a3d42;
+}
+
+.statusTrans {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #7a7886;
+  margin-top: 20px;
+}
+
+.iconProfileNav {
+  color: #4d4b57;
+}
+
+.infoContent {
+  margin-top: -10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.packHead {
+  height: 10px;
+}
+
+.cardProcedures {
+  width: 95%;
+  height: 80px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.titleCardInfo {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #7a7886;
+}
+
+.bodyCardInfo {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  color: #7a7886;
+}
+
+.noProced {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #6379f4;
+}
+
+.titleTfto {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #514f5b;
+  margin-left: 40px;
+}
+
+.cardContactReceiver {
+  width: 95%;
+  height: 100px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: -190px;
+}
+
+.footerSuccess {
+  position: relative;
+  margin-top: 250px;
+}
+
+.btnTopup {
+  width: 100px;
+  height: 60px;
+  background: rgba(99, 121, 244, 0.15);
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  border: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #6379f4;
+}
+
+.btnTopup:hover {
+  background: #6379f4;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  color: #ffffff;
+}
+
+.labelNominal {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 25px;
+  color: #6379f4;
+}
+
+.inputNominal {
+  border: none;
+  height: 60px;
+  font-weight: bold;
+  font-size: 28px;
+  color: #6379f4 !important;
+}
+
+.inputNominal:focus {
+  border: none !important;
+}
+
+.inputNominal::placeholder {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 56px;
+  color: #b5bdcc;
+}
+
+.inputNominal[type="number"]::-webkit-inner-spin-button,
+.inputNominal[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

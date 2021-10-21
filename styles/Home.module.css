@@ -1,121 +1,300 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* jumbotron */
+.titleApps {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 29px;
+  line-height: 40px;
+  color: #6379F4;
 }
 
-.main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.jumbotronPack {
+  margin-top: 110px;
 }
 
-.footer {
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.jumbotronTitle {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 93px;
+  color: #3A3D42;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+.timeTitle {
+  color: #6379F4;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.jumbotronNote {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 31px;
+  color: #3A3D42;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
+.jumbotronBtn {
+  width: 173px;
+  height: 57px;
+  background: #6379F4;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
   text-align: center;
+  color: #FFFFFF;
 }
 
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+.jumbotronBtn:hover {
+  color: #FFFFFF;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.jumbotronRight {
+  background: #6379F4;
+  border-radius: 0px 0px 0px 250px;
 }
 
-.grid {
+.btnGroup {
+  margin-right: 200px !important;
+}
+
+.btnLogin {
+  width: 120px;
+  height: 48px;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.btnLogin:hover {
+  color: #FFFFFF;
+}
+
+.btnSignUp {
+  width: 120px;
+  height: 48px;
+  background: #FFFFFF;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #6379F4;
+}
+
+.btnSignUp:hover {
+  color: #6379F4;
+}
+
+.sample {
+  margin-top: 30px !important;
+  margin-left: 230px !important;
+}
+
+/*  */
+
+/* About Apps */
+
+.aboutCompany {
+  margin-top: 350px;
+  padding-bottom: 100px;
+  background: rgba(71, 58, 209, 0.06);
+}
+
+.packTitle {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+  align-items: center;
+  margin-bottom: 100px;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 45%;
+.titleAbout {
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 93px;
+  color: #6379F4;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.noteAbout {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 31px;
+  color: #3A3D42;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.aboutApps {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.aboutSupport {
+  width: 367px;
+  height: 344px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.iconRounded {
+  width: 60px;
+  height: 60px;
+  background: rgba(71, 58, 209, 0.1);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  color: #6379F4;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+.titleSupport {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+  color: #3A3D42;
+}
+
+.noteSupport {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 31px;
+  text-align: center;
+  color: rgba(58, 61, 66, 0.9);
+}
+
+/* Partner */
+
+.partner{
+  display: flex;
+  justify-content: center;
+  padding: 80px;
+}
+
+.titlePartner{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 93px;
+  color: #3A3D42;
+}
+
+.imgPartner {
+  filter: grayscale(100%);
+}
+
+.footerApps {
+  padding: 80px;
+  background: #6379F4;
+}
+
+.titleFoot {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 49px;
+  color: #FFFFFF;
+}
+
+.noteFoot {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 31px;
+  color: rgba(239, 239, 239, 0.75);
+}
+
+@media screen and (max-width: 768px) {
+  /* jumbotron */
+  .titleApps {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 29px;
+    line-height: 40px;
+    color: #6379F4;
+  }
+  
+  .jumbotronPack {
+    margin-top: 50px;
+  }
+  
+  .jumbotronTitle,
+  .titlePartner {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 70px;
+    color: #3A3D42;
+  }
+
+  .btnGroupSm {
+    margin-right: 0px !important;
+  }
+
+  .btnLoginSm {
+    width: 100px;
+    height: 48px;
+    background-color: #6379F4;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  
+  .btnLogin:hover {
+    color: #FFFFFF;
+  }
+  
+  .btnSignUpSm {
+    width: 100px;
+    height: 48px;
+    background: #FFFFFF;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #6379F4;
+  }
+  
+  .btnSignUp:hover {
+    color: #6379F4;
+  }
+  
+  .jumbotronBtn {
+    margin-top: 30px;
+  }
+  
+  .jumbotronRight {
+    display: none;
+  }
+  /*  */
+
+  /* About Apps */
+  .aboutCompany {
+    display: none;
+    margin-top: 50px;
+    background: rgba(71, 58, 209, 0.06);
+  }
+
+  .partner{
+    margin-top: 50px;
+    padding: 0px;
+  }
+
+  .footerApps {
+    padding: 20px;
   }
 }

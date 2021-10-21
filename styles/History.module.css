@@ -1,0 +1,65 @@
+.historyContent {
+  height: 70vh;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+}
+
+.titleHistory {
+  padding: 30px;
+  margin-bottom: 0px !important;
+}
+
+.btnFilter {
+  width: 155px;
+  height: 40px;
+  background: rgba(58, 61, 66, 0.1);
+  border-radius: 12px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 23px;
+  color: #000000;
+}
+
+.imageProfile {
+  border-radius: 12px;
+}
+
+.nameProfileNav {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 31px;
+  color: #3a3d42;
+}
+
+.statusTrans {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #7a7886;
+}
+
+.iconProfileNav {
+  color: #4d4b57;
+}
+
+.colorGreen {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  color: #1ec15f;
+}
+
+.colorRed {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  color: #ff5b37;
+}

@@ -1,0 +1,48 @@
+/* .pagePin {
+    padding: 50px;
+} */
+
+.titlePin {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    color: #3A3D42;
+}
+
+.notePin {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: rgba(58, 61, 66, 0.6);
+}
+
+.btnPin {
+    background: #6379F4;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+}
+
+.btnConfirm {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF; 
+    padding-top: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .titleAppsPin {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 35px;
+        color: #6379F4;
+        cursor: pointer;
+    }
+
+}

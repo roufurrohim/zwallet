@@ -1,0 +1,99 @@
+.titleLogin {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    color: #3A3D42;
+}
+
+.noteLogin {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: rgba(58, 61, 66, 0.6);
+}
+
+.borderLogin {
+    border: 1px solid rgba(169, 169, 169, 0.6)
+}
+
+.formControl {
+    width: 90% !important;
+}
+
+.formControlPhone {
+    width: 90% !important;
+    
+}
+
+.formControlPhone[type=number]::-webkit-inner-spin-button, 
+.formControlPhone[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.iconShow {
+    color:rgba(169, 169, 169, 0.6);
+    cursor: pointer;
+    margin-left: 450px;
+    margin-top: 8px;
+}
+
+.labelLogin {
+    position: absolute;
+    color: rgba(169, 169, 169, 0.6);
+}
+
+.noteForget {
+    color: rgba(169, 169, 169, 0.6);
+}
+
+.msgWarning {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    color: #FF5B37;
+}
+
+.btnLogin {
+    height: 58px;
+    background: #DADADA;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSubmitLogin {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #88888F;
+    padding-top: 15px !important;
+}
+
+.toSignup {
+    cursor: pointer;
+    color: #6379F4;
+}
+
+@media screen and (max-width: 768px) {
+    .titleAppsLogin {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 35px;
+        color: #6379F4;
+        cursor: pointer;
+    }
+
+    .iconShow {
+        margin-left: 290px;
+    }
+}
