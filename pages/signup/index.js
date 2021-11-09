@@ -6,13 +6,15 @@ import { BsPerson, BsTelephone } from "react-icons/bs";
 import { BiShow, BiHide } from "react-icons/bi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FiLock } from "react-icons/fi";
+import axios from "axios";
+import { API_URL } from "../../helpers";
 
 const Signup = () => {
   const router = useRouter();
 
   const [form, setForm] = useState({
-    firstname: "",
-    lastname: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
     phone: "",
@@ -29,17 +31,47 @@ const Signup = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
-    // setWarning("");
+    setWarning("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
-    router.push("/pin");
+
+    var re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(form.email) === false) {
+      setWarning("must email address !");
+    } else if (
+      form.first_name === "" ||
+      form.last_name === "" ||
+      form.email === "" ||
+      form.password === "" ||
+      form.phone === ""
+    ) {
+      setWarning("all inputs must be filled in !");
+    } else {
+      axios
+        .post(`${API_URL}/register`, form)
+        .then((res) => {
+          localStorage.setItem("idUser", res.data.result.result.id);
+          localStorage.setItem("token", res.data.result.token);
+          setForm({
+            first_name: "",
+            last_name: "",
+            email: "",
+            password: "",
+            phone: "",
+          });
+          router.push("/pin");
+        })
+        .catch((err) => {
+          setWarning(err.response.data.error);
+        });
+    }
   };
 
   const toLogin = () => {
-    router.push("/signup");
+    router.push("/login");
   };
 
   const toHome = () => {
@@ -77,9 +109,8 @@ const Signup = () => {
               <input
                 type="text"
                 className={`border-0 ms-lg-5 ms-4 form-control ${styles.formControl}`}
-                id="emailLogin"
-                name="firstname"
-                value={form.firstname}
+                name="first_name"
+                value={form.first_name}
                 onChange={changeHandler}
                 placeholder="Enter your firstname"
               />
@@ -93,9 +124,8 @@ const Signup = () => {
               <input
                 type="text"
                 className={`border-0 ms-lg-5 ms-4 form-control ${styles.formControl}`}
-                id="emailLogin"
-                name="lastname"
-                value={form.lastname}
+                name="last_name"
+                value={form.last_name}
                 onChange={changeHandler}
                 placeholder="Enter your lastname"
               />
@@ -109,11 +139,12 @@ const Signup = () => {
               <input
                 type="email"
                 className={`border-0 ms-lg-5 ms-4 form-control ${styles.formControl}`}
-                id="emailLogin"
                 name="email"
+                pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
                 value={form.email}
                 onChange={changeHandler}
                 placeholder="example@mail.com"
+                required
               />
               <div className={`${styles.borderLogin}`}></div>
             </div>
@@ -125,7 +156,6 @@ const Signup = () => {
               <input
                 type="number"
                 className={`border-0 ms-lg-5 ms-4 form-control ${styles.formControlPhone}`}
-                id="emailLogin"
                 name="phone"
                 value={form.phone}
                 onChange={changeHandler}

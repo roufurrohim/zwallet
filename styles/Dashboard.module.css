@@ -111,11 +111,11 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
-  color: #6379F4;
+  color: #6379f4;
 }
 
 .btnAll:hover {
-  color: #6379F4;
+  color: #6379f4;
 }
 
 .imageProfileNav {
@@ -127,7 +127,7 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 31px;
-  color: #3A3D42;
+  color: #3a3d42;
 }
 
 .statusTrans {
@@ -135,7 +135,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 19px;
-  color: #7A7886;
+  color: #7a7886;
 }
 
 .colorGreen {
@@ -144,7 +144,7 @@
   font-size: 16px;
   line-height: 22px;
   text-align: right;
-  color: #1EC15F;
+  color: #1ec15f;
 }
 
 .colorRed {
@@ -153,5 +153,37 @@
   font-size: 16px;
   line-height: 22px;
   text-align: right;
-  color: #FF5B37;
+  color: #ff5b37;
+}
+
+@media screen and (max-width: 768px) {
+  .infoBalance {
+    position: absolute;
+    margin-left: -38px;
+    margin-top: -50px;
+    width: 100% !important;
+    height: 250px;
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  .debit {
+    font-size: 30px;
+    line-height: 20px;
+    color: #ffffff;
+  }
+
+  .btnAll {
+    margin-top: -5px;
+  }
+
+  .dbdHistory {
+    width: 100%;
+    height: 380px;
+    margin-top: 200px;
+    position: absolute;
+    margin-left: -38px;
+    margin-bottom: 50px;
+    padding: 20px;
+    overflow-y: scroll;
+  }
 }

@@ -198,3 +198,7 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+.noteWarning {
+  color: #ff0000;
+}

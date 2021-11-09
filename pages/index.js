@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
@@ -14,10 +14,8 @@ import microsoft from "../public/microsoft.png";
 import dropbox from "../public/dropbox.png";
 import hm from "../public/h&m.png";
 
-
 export default function Home() {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const [partner, setPartner] = useState([
     {
@@ -40,13 +38,28 @@ export default function Home() {
     },
   ]);
 
+  const [status, setStatus] = useState("");
+
   const login = () => {
-    router.push('/login')
-  }
+    router.push("/login");
+  };
 
   const signup = () => {
-    router.push('/signup')
-  }
+    router.push("/signup");
+  };
+
+  const toHome = () => {
+    router.push("/home");
+  };
+
+  const toLanding = () => {
+    router.push("/");
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setStatus(token);
+  }, []);
 
   return (
     <div>
@@ -63,7 +76,12 @@ export default function Home() {
               <div className={`col-lg-12 ${styles.titleApps}`}>
                 <div className="row">
                   <div className="col-lg-12 col-4">
-                    <h4 className="ms-lg-5 ms-3 mt-4">Zwallet</h4>
+                    <h4
+                      onClick={toLanding}
+                      className={`ms-lg-5 ms-3 mt-4 ${styles.titleLanding}`}
+                    >
+                      Zwallet
+                    </h4>
                   </div>
 
                   {/* btn d-block on mobile */}
@@ -71,26 +89,40 @@ export default function Home() {
                     <div
                       className={`d-grid gap-2 d-flex mt-3 justify-content-end ${styles.btnGroupSm}`}
                     >
-                      <button
-                        className={`btn me-lg-2 ${styles.btnLoginSm}`}
-                        type="button"
-                        onClick={login}
-                      >
-                        Login
-                      </button>
-                      <button
-                        className={`btn ${styles.btnSignUpSm}`}
-                        type="button"
-                        onClick={signup}
-                      >
-                        Sign Up
-                      </button>
+                      {status === null ? (
+                        <div>
+                          <button
+                            className={`btn me-lg-2 ${styles.btnLoginSm}`}
+                            type="button"
+                            onClick={login}
+                          >
+                            Login
+                          </button>
+                          <button
+                            className={`btn ${styles.btnSignUpSm}`}
+                            type="button"
+                            onClick={signup}
+                          >
+                            Sign Up
+                          </button>
+                        </div>
+                      ) : (
+                        <div>
+                          <button
+                            className={`btn me-lg-2 ${styles.btnDbr}`}
+                            type="button"
+                            onClick={toHome}
+                          >
+                            Dashboard
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="col-lg-12 ms-lg-5">
+              <div className="col-lg-12 ms-lg-5 mb-lg-0 mb-5">
                 <div className="row">
                   <div className={`col-lg-7  ${styles.jumbotronPack}`}>
                     <h1 className={`${styles.jumbotronTitle}`}>
@@ -104,9 +136,12 @@ export default function Home() {
                       oftenly wasting much of your times.
                     </small>
                   </div>
-                  <div className="col-lg-7 mt-lg-5">
+                  <div
+                    className={status === null ? `col-lg-7 mt-lg-5` : `d-none`}
+                  >
                     <button
                       type="button"
+                      onClick={signup}
                       className={`btn ${styles.jumbotronBtn}`}
                     >
                       Try It Free
@@ -118,7 +153,7 @@ export default function Home() {
           </div>
           <div className={`col-lg-6 ${styles.jumbotronRight}`}>
             <div className="row">
-              <div className={`col-lg-12 mt-lg-4`}>
+              <div className={status === null ? `col-lg-12 mt-lg-4` : `d-none`}>
                 <div
                   className={`d-grid gap-2 d-flex justify-content-end me-lg-5 ${styles.btnGroup}`}
                 >
@@ -129,10 +164,26 @@ export default function Home() {
                   >
                     Login
                   </button>
-                  <button className={`btn ${styles.btnSignUp}`} type="button"
-                  onClick={signup}
+                  <button
+                    className={`btn ${styles.btnSignUp}`}
+                    type="button"
+                    onClick={signup}
                   >
                     Sign Up
+                  </button>
+                </div>
+              </div>
+              {/* button after login */}
+              <div className={status === null ? `d-none` : `col-lg-12 mt-lg-4`}>
+                <div
+                  className={`d-grid gap-2 d-flex justify-content-end me-lg-5 ${styles.btnGroup}`}
+                >
+                  <button
+                    className={`btn me-lg-2 ${styles.btnLogin}`}
+                    type="button"
+                    onClick={toHome}
+                  >
+                    Dashboard
                   </button>
                 </div>
               </div>
@@ -251,16 +302,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={`row mt-lg-5 ${styles.partner}`}>
-          <div className="col-lg-5">
-            <div className="row">
-              <div className="col-lg-7">
+        <div className={`d-lg-block d-none row mt-lg-5 ${styles.partner}`}>
+          <div className="col-lg-12">
+            <div className={`row  ${styles.packTitle}`}>
+              <div className="col-lg-12 text-center">
                 <h2 className={`${styles.titlePartner}`}>
                   100+ <span className={styles.timeTitle}>Trusted</span>{" "}
                   Partners.
                 </h2>
               </div>
-              <div className={`col-lg-6 mt-lg-3 ${styles.noteAbout}`}>
+              <div
+                className={`col-lg-3 text-center mt-lg-3 ${styles.noteAbout}`}
+              >
                 <small>
                   We have reached global level and have 100+ brand partners
                   around the globe.
@@ -268,10 +321,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="col-lg-5 d-lg-block d-none">
+          <div className="col-lg-12 d-flex justify-content-center align-items-center ">
             <div className="row">
               {partner.map((e, i) => (
-                <div key={i} className={`col-lg-4 my-4 `}>
+                <div key={i} className={`col-lg-4 my-4 text-center`}>
                   <Image
                     src={e.imageUrl}
                     width={150}
@@ -288,20 +341,23 @@ export default function Home() {
         <footer className={`row ${styles.footerApps}`}>
           <div className="col-lg-12">
             <div className="row pb-lg-5 border-bottom">
-              <div className="col-lg-12">
+              <div className="col-lg-12 mt-lg-0 mt-2">
                 <h1 className={`${styles.titleFoot}`}>Zwallet</h1>
               </div>
-              <div className="col-lg-2 ">
-                <p className={`${styles.noteFoot}`}>Simplify financial needs and saving much time in banking needs with one single app.</p>
+              <div className="col-lg-2 mt-lg-0 mt-3 ">
+                <p className={`${styles.noteFoot}`}>
+                  Simplify financial needs and saving much time in banking needs
+                  with one single app.
+                </p>
               </div>
             </div>
-            <div className={`row mt-lg-3 ${styles.noteFoot}`}>
+            <div className={`row mt-lg-3 mt-5 ${styles.noteFoot}`}>
               <div className="col-lg-4">
                 <small>2020 Zwallet. All right reserved.</small>
               </div>
-              <div className="col-lg-8 text-end">
-                    <small className="me-5">+62 5637 8882 9901</small>
-                    <small>contact@zwallet.com</small>
+              <div className="col-lg-8 text-lg-end">
+                <small className="me-lg-5 me-3">+62 5637 8882 9901</small>
+                <small>contact@zwallet.com</small>
               </div>
             </div>
           </div>

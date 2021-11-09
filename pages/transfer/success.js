@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../layout/sidebar";
 import styles from "../../styles/Success.module.css";
 import Image from "next/image";
@@ -10,24 +12,41 @@ import { AiOutlineCheck } from "react-icons/ai";
 import Head from "next/head";
 import NavbarApps from "../../components/Navbar";
 import FooterApps from "../../components/Footer";
-// import stylesSide from "../styles/Sidebar.module.css"
+import Guard from "../../HOC/guard";
 import { BsGrid, BsPerson } from "react-icons/bs";
 import { RiArrowUpLine } from "react-icons/ri";
 import { AiOutlinePlus, AiOutlineDownload } from "react-icons/ai";
 import { FiLogOut, FiShare2 } from "react-icons/fi";
+import axios from "axios";
+import { API_URL } from "../../helpers";
+import moment from "moment-timezone";
 
 const success = () => {
-  const receiver = {
-    name: "Samuel Suhi",
-    phone: "+62 813-8492-9994",
-    total: 50000,
-  };
+  const [data, setData] = useState({});
+  const [dataRec, setDataRec] = useState({});
 
-  const infoTf = {
-    amount: 100000,
-    balanceLeft: 20000,
-    date: "May 11, 2020 - 12.20",
-    notes: "For buying some socks",
+  useEffect(() => {
+    const id = router.query.id;
+    const token = localStorage.getItem("token");
+    const headers = {
+      token,
+    };
+    axios
+      .get(`${API_URL}/details-transactions/${id}`, { headers })
+      .then((res) => {
+        setData(res.data.result[0]);
+        console.log(res.data.result[0]);
+        setDataRec(res.data.result[0].receiverUsers);
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+      });
+  }, []);
+
+  const datetime = (data) => {
+    const dataTime = moment(`${data}`);
+    return dataTime.tz("Asia/Jakarta").format("MMM DD, YYYY - HH.MM");
+    // return moment(`${data}`).tz("Asia/Jakarta").format("MMM DD, YYYY - HH.MM");
   };
 
   const router = useRouter();
@@ -41,16 +60,25 @@ const success = () => {
   };
 
   const toTopup = () => {
-    router.push("/topup")
-  }
+    router.push("/topup");
+  };
 
   const toProfile = () => {
-    router.push("/profile")
-  }
-  
+    router.push("/profile");
+  };
+
   const toHomePage = () => {
-    router.push("/")
-  }
+    router.push("/");
+  };
+
+  // number with commas
+  const numberWithCommas = (num) => {
+    if (num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    } else {
+      return num;
+    }
+  };
 
   return (
     <>
@@ -64,7 +92,7 @@ const success = () => {
 
         <div className={`container-fluid ${styles.content}`}>
           <div className="row">
-            <div className="col-lg-3 d-flex justify-content-end me-5">
+            <div className="col-lg-3 d-none d-lg-flex justify-content-end me-5">
               <div className={`${styles.sidebar}`}>
                 <ul className="navbar-nav">
                   <li
@@ -87,7 +115,7 @@ const success = () => {
                   </li>
 
                   <li
-                  onClick={toTopup}
+                    onClick={toTopup}
                     className={`nav-item my-4 d-flex align-items-center ${styles.navItem}`}
                   >
                     <AiOutlinePlus size={28} />
@@ -136,7 +164,7 @@ const success = () => {
                       <div>
                         <p className={`${styles.titleCardInfo}`}>Amount</p>
                         <p className={`${styles.bodyCardInfo}`}>
-                          {infoTf.amount}
+                          Rp. {numberWithCommas(data.amount)}
                         </p>
                       </div>
                     </div>
@@ -149,7 +177,7 @@ const success = () => {
                           Balance left
                         </p>
                         <p className={`${styles.bodyCardInfo}`}>
-                          {infoTf.balanceLeft}
+                          Rp. {numberWithCommas(data.balance)}
                         </p>
                       </div>
                     </div>
@@ -160,7 +188,7 @@ const success = () => {
                       <div>
                         <p className={`${styles.titleCardInfo}`}>Date & Time</p>
                         <p className={`${styles.bodyCardInfo}`}>
-                          {infoTf.date}
+                          {datetime(data.date)}
                         </p>
                       </div>
                     </div>
@@ -170,9 +198,7 @@ const success = () => {
                     <div className="col-lg-9">
                       <div>
                         <p className={`${styles.titleCardInfo}`}>Notes</p>
-                        <p className={`${styles.bodyCardInfo}`}>
-                          {infoTf.notes}
-                        </p>
+                        <p className={`${styles.bodyCardInfo}`}>{data.notes}</p>
                       </div>
                     </div>
                   </div>
@@ -185,9 +211,10 @@ const success = () => {
                   <div className={`row ${styles.cardContactReceiver}`}>
                     <div className="col-lg-9">
                       <div className="row">
-                        <div className="col-lg-2">
-                          <Image
-                            src={profile}
+                        <div className="col-lg-2 col-4">
+                          <img
+                            src={`${API_URL}/${dataRec.image}`}
+                            // src={profile}
                             alt="profile"
                             className={`${styles.imageProfileReceiver}`}
                             width={70}
@@ -196,32 +223,41 @@ const success = () => {
                         </div>
 
                         <div
-                          className={`col-lg-8 d-flex flex-column ${styles.infoReceiver}`}
+                          className={`col-8 d-flex flex-column ${styles.infoReceiver}`}
                         >
-                          <span className={`${styles.nameProfileNav}`}>
-                            {receiver.name}
+                          <span
+                            className={`text-capitalize ${styles.nameProfileNav}`}
+                          >
+                            {`${dataRec.first_name} ${dataRec.last_name}`}
                           </span>
                           <small className={`${styles.statusTrans}`}>
-                            {receiver.phone}
+                            +62 {dataRec.phone}
                           </small>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="d-flex justify-content-end align-items-center">
-                  {/* <ButtonGroup className="me-5"> */}
-                    <Button onClick={toDashboard} className={`me-3 ${styles.btnShare}`}>
-                      <FiShare2 size={28} />
-                    </Button>
-                    <Button onClick={toDashboard} className={`mx-3 ${styles.btnDwld}`}>
-                      <AiOutlineDownload size={28} className="me-3" />
-                      <small>Download PDF</small>
-                    </Button>
-                    <Button onClick={toDashboard} className={`ms-3 me-5 ${styles.backToHome}`}>
-                      Back To Home
-                    </Button>
-                  {/* </ButtonGroup> */}
+                <div className="d-flex justify-content-lg-end justify-content-center align-items-center">
+                  <Button
+                    onClick={toDashboard}
+                    className={`me-lg-3 ${styles.btnShare}`}
+                  >
+                    <FiShare2 size={28} />
+                  </Button>
+                  <Button
+                    onClick={toDashboard}
+                    className={`mx-lg-3 d-lg-block d-none ${styles.btnDwld}`}
+                  >
+                    <AiOutlineDownload size={28} className="me-3" />
+                    <small>Download PDF</small>
+                  </Button>
+                  <Button
+                    onClick={toDashboard}
+                    className={`ms-3 me-lg-5 ${styles.backToHome}`}
+                  >
+                    Back To Home
+                  </Button>
                 </div>
               </div>
             </div>
@@ -236,4 +272,4 @@ const success = () => {
   );
 };
 
-export default success;
+export default Guard(success);

@@ -60,7 +60,7 @@
 
 .btnLogin {
     height: 58px;
-    background: #DADADA;
+    background: #6379F4;
     box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
     border-radius: 12px;
     display: flex;
@@ -74,7 +74,7 @@
     font-size: 18px;
     line-height: 25px;
     text-align: center;
-    color: #88888F;
+    color: #fff;
     padding-top: 15px !important;
 }
 

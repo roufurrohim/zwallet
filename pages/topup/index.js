@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
+import Guard from "../../HOC/guard";
 import styles from "../../styles/Topup.module.css";
 import { useRouter } from "next/router";
 import { Button } from "reactstrap";
@@ -10,6 +11,8 @@ import { BsGrid, BsPerson } from "react-icons/bs";
 import { RiArrowUpLine } from "react-icons/ri";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
+import axios from "axios";
+import { API_URL } from "../../helpers";
 
 const Topup = () => {
   const procedures = [
@@ -48,17 +51,50 @@ const Topup = () => {
     },
   ];
 
-  const receiver = {
-    name: "Samuel Suhi",
-    phone: "+62 813-8492-9994",
-    total: 50000,
+  const [nominal, setNominal] = useState("");
+  const [warning, setWarning] = useState("");
+
+  // handle change
+  const handleChange = (e) => {
+    if (e.target.value <= 0) {
+      setNominal("");
+      setWarning("");
+    } else {
+      setNominal(e.target.value);
+      setWarning("");
+    }
   };
 
-  const infoTf = {
-    amount: 100000,
-    balanceLeft: 20000,
-    date: "May 11, 2020 - 12.20",
-    notes: "For buying some socks",
+  // handle top up
+  const topup = (e) => {
+    e.preventDefault();
+
+    const token = localStorage.getItem("token");
+    const headers = {
+      token,
+    };
+
+    if (nominal === "") {
+      setWarning("Input Nominal Top Up");
+    } else {
+      const data = {
+        receiver: localStorage.getItem("idUser"),
+        amount: parseInt(nominal),
+        balance: 0,
+        notes: "top up",
+        type: "Top Up",
+      };
+      axios
+        .post(`${API_URL}/topup`, data, { headers })
+        .then((res) => {
+          alert(res.data.message);
+          toDashboard();
+          setNominal("");
+        })
+        .catch((err) => {
+          console.log(err.response);
+        });
+    }
   };
 
   const router = useRouter();
@@ -72,16 +108,16 @@ const Topup = () => {
   };
 
   const toTopup = () => {
-    router.push("/topup")
-  }
-  
+    router.push("/topup");
+  };
+
   const toProfile = () => {
-    router.push("/profile")
-  }
-  
+    router.push("/profile");
+  };
+
   const toHomePage = () => {
-    router.push("/")
-  }
+    router.push("/");
+  };
 
   return (
     <>
@@ -179,26 +215,37 @@ const Topup = () => {
                   ))}
                 </div>
 
-                <div className="row g-3 justify-content-center align-items-center" style={{marginTop: "-30px"}}>
+                <div
+                  className="row g-3 justify-content-center align-items-center"
+                  style={{ marginTop: "-30px" }}
+                >
                   <div className="col-auto">
-                    <label className={`col-form-label ${styles.labelNominal}`}>Rp</label>
+                    <label className={`col-form-label ${styles.labelNominal}`}>
+                      Rp
+                    </label>
                   </div>
-                  <div className="col-auto">
-                    <input 
-                    type="number"
-                    className={`form-control ${styles.inputNominal}`} 
-                    placeholder="0.00" />
-                  </div>
+                  <form onSubmit={topup} className="col-auto">
+                    <input
+                      type="number"
+                      value={nominal}
+                      // onChange={(e) => setNominal(e.target.value)}
+                      onChange={handleChange}
+                      className={`form-control ${styles.inputNominal}`}
+                      placeholder="0.00"
+                    />
+                  </form>
                   <div className="col-auto">
                     <Button
-                    //   onClick={toDashboard}
+                      onClick={topup}
                       className={`ms-3 me-5 ${styles.btnTopup}`}
                     >
                       Top Up
                     </Button>
                   </div>
+                  <small className={`text-center ${styles.noteWarning}`}>
+                    {warning}
+                  </small>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -212,4 +259,4 @@ const Topup = () => {
   );
 };
 
-export default Topup;
+export default Guard(Topup);

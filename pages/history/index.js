@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Guard from "../../HOC/guard";
 import Sidebar from "../../layout/sidebar";
 import styles from "../../styles/History.module.css";
 import Image from "next/image";
@@ -102,4 +103,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default Guard(History);

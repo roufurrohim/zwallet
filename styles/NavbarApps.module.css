@@ -18,10 +18,11 @@
     font-size: 29px;
     line-height: 40px;
     color: #6379F4;
+    cursor: pointer;
 }
 
 .profileNav {
-    padding-right: 200px;
+    padding-right: 100px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -30,6 +31,7 @@
 
 .imageProfileNav {
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .nameProfileNav {
@@ -51,4 +53,20 @@
 
 .iconProfileNav {
     color: #4D4B57;
+}
+
+@media screen and (max-width: 768px) {
+    .contentNav {
+        padding: 20px;
+    }
+
+    .titleNav {
+        margin-left: 0px;
+        line-height: normal;
+        margin-top: -30px;
+    }
+
+    .profileNav {
+        padding-right: 0px;
+    }
 }

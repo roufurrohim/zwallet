@@ -26,3 +26,9 @@
     line-height: 28px;
     color: #EFEFEF;
 }
+
+@media screen and (max-width: 768px) {
+    .contentFooter {
+        display: none;
+    }
+}

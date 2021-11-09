@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import axios from "axios";
 import LayoutDefault from "../../layout/leftDefault";
 import styles from "../../styles/Login.module.css";
 import { BiShow, BiHide } from "react-icons/bi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FiLock } from "react-icons/fi";
+import { API_URL } from "../../helpers";
 
 const Login = () => {
   const router = useRouter();
@@ -14,7 +16,7 @@ const Login = () => {
     password: "",
   });
 
-  const [warning, setWarning] = useState("")
+  const [warning, setWarning] = useState("");
 
   const [showPwd, setShowPwd] = useState(false);
 
@@ -25,12 +27,32 @@ const Login = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
-    // setWarning("");
+    setWarning("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+    if (form.email === "" || form.password === "") {
+      setWarning("Enter an email and password");
+    } else {
+      axios
+        .post(`${API_URL}/login`, form)
+        .then((res) => {
+          const token = res.data.result.token;
+          const id = res.data.result.user.id;
+          localStorage.setItem("token", token);
+          localStorage.setItem("idUser", id);
+          router.push("/home");
+        })
+        .catch((error) => {
+          console.log(error);
+          // setWarning(error.response.data.error);
+        });
+      setForm({
+        email: "",
+        password: "",
+      });
+    }
   };
 
   const toSignup = () => {
@@ -38,15 +60,17 @@ const Login = () => {
   };
 
   const toHome = () => {
-      router.push("/")
-  }
+    router.push("/");
+  };
 
   return (
     <LayoutDefault>
       <div className="row p-lg-5">
-          <div className="col-lg-12 d-lg-none d-block text-center mt-4">
-              <h2 onClick={toHome} className={`${styles.titleAppsLogin}`}>Zwallet</h2>
-          </div>
+        <div className="col-lg-12 d-lg-none d-block text-center mt-4">
+          <h2 onClick={toHome} className={`${styles.titleAppsLogin}`}>
+            Zwallet
+          </h2>
+        </div>
         <div className="col-lg-8 mt-lg-5 mt-3">
           <h4 className={`${styles.titleLogin}`}>
             Start Accessing Banking Needs With All Devices and All Platforms
@@ -69,7 +93,7 @@ const Login = () => {
               </span>
               <input
                 type="email"
-                className={`border-0 ms-lg-5 ms-4 form-control ${styles.formControl }`}
+                className={`border-0 ms-lg-5 ms-4 form-control ${styles.formControl}`}
                 id="emailLogin"
                 name="email"
                 value={form.email}
@@ -91,7 +115,7 @@ const Login = () => {
               </span>
               <input
                 type={showPwd ? "text" : "password"}
-                className={`border-0 ms-lg-5 ms-4 form-control ${styles.formControl }`}
+                className={`border-0 ms-lg-5 ms-4 form-control ${styles.formControl}`}
                 id="pass"
                 name="password"
                 value={form.password}

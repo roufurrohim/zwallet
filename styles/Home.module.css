@@ -7,6 +7,10 @@
   color: #6379F4;
 }
 
+.titleLanding {
+  cursor: pointer;
+}
+
 .jumbotronPack {
   margin-top: 110px;
 }
@@ -105,7 +109,7 @@
 /* About Apps */
 
 .aboutCompany {
-  margin-top: 350px;
+  margin-top: 430px;
   padding-bottom: 100px;
   background: rgba(71, 58, 209, 0.06);
 }
@@ -272,6 +276,26 @@
   .btnSignUp:hover {
     color: #6379F4;
   }
+
+  .btnDbr {
+    width: 125px;
+    height: 48px;
+    background-color: #6379F4;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  .btnDbr:hover {
+    color: #FFFFFF;
+  }
   
   .jumbotronBtn {
     margin-top: 30px;
@@ -284,7 +308,7 @@
 
   /* About Apps */
   .aboutCompany {
-    display: none;
+    display: none !important;
     margin-top: 50px;
     background: rgba(71, 58, 209, 0.06);
   }
@@ -296,5 +320,16 @@
 
   .footerApps {
     padding: 20px;
+    height: 40vh;
+  }
+
+  .titleFoot {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .noteFoot {
+    font-size: 16px;
+    line-height: 30px;
   }
 }

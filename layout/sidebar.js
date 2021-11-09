@@ -1,38 +1,38 @@
-import React, { useState } from 'react'
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import NavbarApps from "../components/Navbar";
 import FooterApps from "../components/Footer";
-import styles from "../styles/Sidebar.module.css"
+import styles from "../styles/Sidebar.module.css";
 import { BsGrid, BsPerson } from "react-icons/bs";
 import { RiArrowUpLine } from "react-icons/ri";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 
 const Sidebar = (props) => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const toDashboard = () => {
-    router.push("/home")
-  }
+    router.push("/home");
+  };
 
   const toTransfer = () => {
-    router.push("/transfer")
-  }
+    router.push("/transfer");
+  };
 
   const toTopup = () => {
-    router.push("/topup")
-  }
-  
+    router.push("/topup");
+  };
+
   const toProfile = () => {
-    router.push("/profile")
-  }
-  
+    router.push("/profile");
+  };
+
   const toHomePage = () => {
-    router.push("/")
-  }
-    
+    localStorage.clear();
+    router.push("/");
+  };
+
   return (
     <>
       <Head>
@@ -45,35 +45,50 @@ const Sidebar = (props) => {
 
         <div className={`container-fluid ${styles.content}`}>
           <div className="row">
-            <div className="col-lg-3 d-flex justify-content-end me-5">
+            <div className="d-lg-block d-none col-lg-3 d-flex justify-content-end me-5">
               <div className={`${styles.sidebar}`}>
                 <ul className="navbar-nav">
-                  <li onClick={toDashboard} className={`nav-item my-4 d-flex align-items-center ${styles.navItem}`}>
+                  <li
+                    onClick={toDashboard}
+                    className={`nav-item my-4 d-flex align-items-center ${styles.navItem}`}
+                  >
                     <BsGrid size={28} />
                     <span className="links_name ms-4">Dashboard</span>
                     <span className="tooltip">Dashboard</span>
                   </li>
 
-                  <li onClick={toTransfer} className={`nav-item my-4 d-flex align-items-center  ${styles.navItem}`}>
+                  <li
+                    onClick={toTransfer}
+                    className={`nav-item my-4 d-flex align-items-center  ${styles.navItem}`}
+                  >
                     <RiArrowUpLine size={28} />
                     <span className="links_name ms-4">Transfer</span>
 
                     <span className="tooltip">Transfer</span>
                   </li>
 
-                  <li onClick={toTopup} className={`nav-item my-4 d-flex align-items-center ${styles.navItem}`}>
+                  <li
+                    onClick={toTopup}
+                    className={`nav-item my-4 d-flex align-items-center ${styles.navItem}`}
+                  >
                     <AiOutlinePlus size={28} />
                     <span className="links_name ms-4">Top Up</span>
                     <span className="tooltip">Top Up</span>
                   </li>
 
-                  <li onClick={toProfile} className={`nav-item my-4 d-flex align-items-center ${styles.navItem}`}>
+                  <li
+                    onClick={toProfile}
+                    className={`nav-item my-4 d-flex align-items-center ${styles.navItem}`}
+                  >
                     <BsPerson size={28} />
                     <span className="links_name ms-4">Profile</span>
                     <span className="tooltip">Profile</span>
                   </li>
 
-                  <li onClick={toHomePage} className={`nav-item d-flex align-items-center ${styles.navItemLogout}`}>
+                  <li
+                    onClick={toHomePage}
+                    className={`nav-item d-flex align-items-center ${styles.navItemLogout}`}
+                  >
                     <FiLogOut size={28} />
                     <span className="links_name ms-4">Log out</span>
                     <span className="tooltip">Log out</span>

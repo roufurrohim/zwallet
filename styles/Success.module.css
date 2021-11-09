@@ -186,3 +186,30 @@
   border-radius: 12px;
   color: #ffffff;
 }
+
+@media screen and (max-width: 768px) {
+  .successContent {
+    position: absolute;
+    margin-left: -50px;
+    margin-top: -50px;
+    height: 120vh !important;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+  }
+
+  .statusTrans {
+    line-height: 0px;
+  }
+
+  .btnShare {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .btnDwld,
+  .backToHome {
+    width: 100% !important;
+    height: 60px;
+  }
+}
