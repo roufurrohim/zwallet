@@ -54,29 +54,25 @@ const Transfer = () => {
 
   return (
     <Sidebar>
-      <div className={`row ${styles.historyContent}`}>
-        <div className={`col-lg-12 ${styles.titleHistory}`}>
+      <div className={` ${styles.historyContent}`}>
+        <div className={` ${styles.titleHistory}`}>
           <h5>Search Receiver</h5>
         </div>
+        <div className={`${styles.contentSearch}`}>
+          <form onSubmit={submitSearch} className={`${styles.formSearchTf}`}>
+            <BiSearch size={32} className={`ms-3 ${styles.iconSearch}`} />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search receiver here"
+              className={`ms-3 ${styles.inputSearchReceiver}`}
+            />
+          </form>
+        </div>
 
-        <div className={`col-lg-12 ${styles.searchContent}`}>
-          <div className={`row mb-4`}>
-            <div className={`col-lg-12`}>
-              <form
-                onSubmit={submitSearch}
-                className={`${styles.formSearchTf}`}
-              >
-                <BiSearch size={32} className={`ms-3 ${styles.iconSearch}`} />
-                <input
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search receiver here"
-                  className={`ms-3 ${styles.inputSearchReceiver}`}
-                />
-              </form>
-            </div>
-          </div>
+        <div className={`mt-lg-2 ${styles.receiverContent}`}>
+          {/* <div className={`row`}> */}
           {receiver.map((e, i) => (
             <div
               key={i}
@@ -95,7 +91,7 @@ const Transfer = () => {
                     />
                   </div>
 
-                  <div className="col-lg-10 col-9 d-flex flex-column">
+                  <div className="col-lg-10 col-9 ms-lg-2 d-flex flex-column">
                     <span
                       className={`text-capitalize ${styles.nameProfileNav}`}
                     >
@@ -109,6 +105,7 @@ const Transfer = () => {
               </div>
             </div>
           ))}
+          {/* </div> */}
         </div>
       </div>
     </Sidebar>

@@ -7,8 +7,6 @@ import styles from "../../styles/Dashboard.module.css";
 import Sidebar from "../../layout/sidebar";
 import { RiArrowUpLine } from "react-icons/ri";
 import { AiOutlinePlus, AiOutlineArrowDown } from "react-icons/ai";
-import Image from "next/image";
-import profile from "../../public/profile.png";
 import { API_URL } from "../../helpers";
 import { Bar } from "react-chartjs-2";
 

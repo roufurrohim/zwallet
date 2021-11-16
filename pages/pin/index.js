@@ -21,7 +21,7 @@ const Pin = () => {
       backgroundColor: "white",
       color: "black",
       textAlign: "center",
-      margin: "0px 20px",
+      // margin: "0px 10px",
       border: "1px solid rgba(169, 169, 169, 0.6)",
     },
     inputStyleInvalid: {
@@ -86,7 +86,7 @@ const Pin = () => {
           </small>
         </div>
 
-        <div className="col-lg-10 text-center mt-lg-5 mt-3">
+        <div className="col-lg-11 d-flex justify-content-center mt-lg-5 mt-3">
           <ReactCodeInput
             type="password"
             secret

@@ -195,16 +195,16 @@ const Topup = () => {
                   </div>
                 </div>
 
-                <div className={`col-lg-12 ${styles.infoContent}`}>
+                <div className={`col-lg-12 mt-lg-0 mt-5 ${styles.infoContent}`}>
                   {procedures.map((e, i) => (
                     <div
                       key={i}
                       className={`row mb-3 ${styles.cardProcedures}`}
                     >
-                      <div className="col-lg-1 text-center">
+                      <div className="col-lg-1 col-1 text-center">
                         <p className={`${styles.noProced}`}>{e.id}</p>
                       </div>
-                      <div className="col-lg-9">
+                      <div className="col-lg-9 col-11">
                         <div>
                           <p className={`${styles.bodyCardInfo}`}>
                             {e.procedure}
@@ -216,15 +216,15 @@ const Topup = () => {
                 </div>
 
                 <div
-                  className="row g-3 justify-content-center align-items-center"
+                  className="row g-lg-3 mt-lg-0 ms-lg-0 ms-3 mt-3 justify-content-center align-items-center"
                   style={{ marginTop: "-30px" }}
                 >
-                  <div className="col-auto">
+                  <div className="col-lg-auto col-2">
                     <label className={`col-form-label ${styles.labelNominal}`}>
                       Rp
                     </label>
                   </div>
-                  <form onSubmit={topup} className="col-auto">
+                  <form onSubmit={topup} className="col-lg-auto col-5">
                     <input
                       type="number"
                       value={nominal}
@@ -234,7 +234,7 @@ const Topup = () => {
                       placeholder="0.00"
                     />
                   </form>
-                  <div className="col-auto">
+                  <div className="col-lg-auto col-5">
                     <Button
                       onClick={topup}
                       className={`ms-3 me-5 ${styles.btnTopup}`}

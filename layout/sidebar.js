@@ -45,7 +45,7 @@ const Sidebar = (props) => {
 
         <div className={`container-fluid ${styles.content}`}>
           <div className="row">
-            <div className="d-lg-block d-none col-lg-3 d-flex justify-content-end me-5">
+            <div className="d-none col-lg-3 d-lg-flex justify-content-end me-lg-2">
               <div className={`${styles.sidebar}`}>
                 <ul className="navbar-nav">
                   <li

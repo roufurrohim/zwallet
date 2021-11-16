@@ -6,6 +6,7 @@
 }
 
 .titleHistory {
+  height: 80px;
   padding: 30px;
   margin-bottom: 0px !important;
 }
@@ -20,6 +21,23 @@
   font-size: 13px;
   line-height: 23px;
   color: #000000;
+}
+
+.contentCard {
+  overflow-y: scroll !important;
+  height: 55vh;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.contentCard::-webkit-scrollbar {
+  height: 100vh;
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.contentCard {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .imageProfile {
@@ -62,4 +80,28 @@
   line-height: 22px;
   text-align: right;
   color: #ff5b37;
+}
+
+@media screen and (max-width: 768px) {
+  .historyContent {
+    position: absolute;
+    height: 100vh;
+    width: 100% !important;
+    margin-left: -50px;
+    margin-top: -50px;
+  }
+
+  .titleHistory {
+    height: 70px !important;
+  }
+
+  .contentCard {
+    height: 70vh;
+    margin-top: -90px;
+  }
+
+  .btnFilter {
+    width: 120px;
+    margin-left: -10px;
+  }
 }
