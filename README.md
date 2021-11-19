@@ -1,11 +1,117 @@
-Zwallet adalah sample Dompet digital berbasis Web menggunakan [Next.js](https://nextjs.org/) untuk pengolahan data di frontend menggunakan Redux.
+<div id="top"></div>
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-Untuk link repository backendnya [Zwallet-Backend](https://github.com/roufurrohim/zwallet-BE)
+  <h3 align="center">Zwallet</h3>
 
-Dibawah ini adalah sample screenshoot dari App Coffee Shop tampilan website dan mobile untuk User.
+  <p align="center">
+    Zwallet is a sample digital Wallet
+  </p>
+</div>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+
+Zwallet is a sample Web-based digital wallet using Next.js and for data processing on the frontend using Redux.
+
+For the backend repository link [Zwallet-Backend](https://github.com/roufurrohim/zwallet-BE)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+### Built With
+
+* [Next.js](https://nextjs.org/)
+* [Redux](https://redux.js.org/)
+* [Reactstrap](https://reactstrap.github.io/)
+* [React-icons](https://react-icons.github.io/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo backend
+   ```sh
+   git clone https://github.com/roufurrohim/zwallet-BE
+   ```
+2. Clone the repo
+   ```sh
+   git clone https://github.com/roufurrohim/zwallet
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `.env`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- CONTACT -->
+## Contact
+
+Your Name - [Linkedin](https://twitter.com/your_username) - email@example.com
+
+Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+Below is a sample screenshot of the App Coffee Shop website and mobile display for users.
 
 ---------------------------------------------------
-Tampilan Web|Tampilan Mobile
+Display Web|Display Mobile
 :-----------------------:|:----------------------------:
 ![](img/web/homepage.png)|![](img/mobile/landing.png)
 ![](img/web/login.png)|![](img/mobile/LOGIN.png)
