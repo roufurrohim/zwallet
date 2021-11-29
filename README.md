@@ -2,8 +2,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://zwallet-ten.vercel.app/">
+    <img src="img/web/logo.png" alt="Logo" width="120" height="70">
   </a>
 
   <h3 align="center">Zwallet</h3>
@@ -32,7 +32,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#gallery">Gallery</a></li>
   </ol>
 </details>
 
@@ -93,16 +93,6 @@ For the backend repository link [Zwallet-Backend](https://github.com/roufurrohim
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-<!-- CONTACT -->
-## Contact
-
-Your Name - [Linkedin](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 Below is a sample screenshot of the App Coffee Shop website and mobile display for users.
 
 ---------------------------------------------------
@@ -116,3 +106,5 @@ Display Web|Display Mobile
 ![](img/web/topup2.png)|![](img/mobile/topup2.png)
 ![](img/web/history.png)|![](img/mobile/history.png)
 ![](img/web/profile.png)|![](img/mobile/profile.png)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
