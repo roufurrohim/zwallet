@@ -42,9 +42,9 @@
 ## About The Project
 
 
-Zwallet is a sample Web-based digital wallet using Next.js and for data processing on the frontend using Redux.
+Zwallet is a sample Web-based digital wallet using Next.js and for data processing on the frontend using Redux and for the backend use Express.js, Sequelize, and database with postgreSQL and then I deploy on Heroku.
 
-For the backend repository link [Zwallet-Backend](https://github.com/roufurrohim/zwallet-BE)
+For the backend repository link [Zwallet-Backend](https://github.com/roufurrohim/zwallet-postgres)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

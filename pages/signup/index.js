@@ -50,8 +50,13 @@ const Signup = () => {
     ) {
       setWarning("all inputs must be filled in !");
     } else {
+      let phoneRep = form.phone.replace(/\b0+/g, "");
+      let newForm = {
+        ...form,
+        phone: phoneRep,
+      };
       axios
-        .post(`${API_URL}/register`, form)
+        .post(`${API_URL}/register`, newForm)
         .then((res) => {
           localStorage.setItem("idUser", res.data.result.result.id);
           localStorage.setItem("token", res.data.result.token);

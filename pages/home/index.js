@@ -8,7 +8,7 @@ import Sidebar from "../../layout/sidebar";
 import { RiArrowUpLine } from "react-icons/ri";
 import { AiOutlinePlus, AiOutlineArrowDown } from "react-icons/ai";
 import { API_URL } from "../../helpers";
-import { Bar } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 
 const Home = () => {
   const router = useRouter();
@@ -32,11 +32,13 @@ const Home = () => {
   };
 
   const fetchData = (data) => {
+    // const dataTemp = [];
     for (let i = 0; i < data.length; i++) {
+      // dataTemp.push(data[i].amount);
       setChart([...chart, data[i].amount]);
     }
+    // setChart(dataTemp);
   };
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     const id = localStorage.getItem("idUser");
@@ -52,6 +54,7 @@ const Home = () => {
         setUser(res.data.result[0]);
       })
       .catch((err) => {
+        console.log(err.response);
         alert(err.response.data.error);
       });
 
@@ -64,6 +67,7 @@ const Home = () => {
         setIncome(dataIncome.sum("amount"));
       })
       .catch((err) => {
+        // console.log(err);
         alert(err.response.data.error);
       });
 
@@ -88,11 +92,9 @@ const Home = () => {
       .catch((err) => {
         alert(err.response.data.error);
       });
-    fetchData(dataIncome);
+    fetchData(history);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // console.log(chart);
 
   // data chart
   const data = {
@@ -191,9 +193,66 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                {/* <div className={`col-lg-12 ${styles.income}`}>
-                  <Bar data={data} />
-                </div> */}
+                <div className={`col-lg-12 w-100 ${styles.incomeChart}`}>
+                  {/* <Bar
+                    datasetIdKey="id"
+                    data={{
+                      labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                      datasets: [chart],
+                    }}
+                    redraw={true}
+                  /> */}
+
+                  <Bar
+                    datasetIdKey="id"
+                    data={{
+                      labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                      datasets: [
+                        {
+                          id: 1,
+                          label: "Income",
+                          backgroundColor: "#6379F4",
+                          borderWidth: 1,
+                          borderRadius: 10,
+                          data: [income],
+                        },
+                        {
+                          id: 2,
+                          label: "expense",
+                          borderWidth: 1,
+                          borderRadius: 10,
+                          backgroundColor: "#9DA6B5",
+                          data: [expense],
+                        },
+                      ],
+                      options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                          xAxes: [
+                            {
+                              ticks: { display: false },
+                              gridLines: {
+                                display: false,
+                                drawBorder: false,
+                              },
+                            },
+                          ],
+                          yAxes: [
+                            {
+                              ticks: { display: false },
+                              gridLines: {
+                                display: false,
+                                drawBorder: false,
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    }}
+                    redraw
+                  />
+                </div>
               </div>
             </div>
             <div className={`col-lg-4 ${styles.dbdHistory}`}>
@@ -220,10 +279,10 @@ const Home = () => {
                     <small>Loading...</small>
                   ) : (
                     history.map((e, i) => (
-                      <div key={i} className="row my-lg-3 my-4">
+                      <div key={i} className="row my-lg-4 my-4">
                         <div className="col-2 text-end">
                           <img
-                            src={`${API_URL}/${e.receiverUsers.image}`}
+                            src={`${API_URL}/${e.senderUsers.image}`}
                             alt="profile"
                             className={`${styles.imageProfileNav}`}
                             width={52}
@@ -233,9 +292,26 @@ const Home = () => {
 
                         <div className="col-5 ms-lg-0 ms-1 d-flex flex-column">
                           <span
-                            className={`text-capitalize ${styles.nameProfileNav}`}
+                            className={`text-capitalize ${
+                              styles.nameProfileNav
+                            } ${
+                              e.receiverId === idUser && e.type === "Transfer"
+                                ? "d-none"
+                                : "d-block"
+                            }`}
                           >
                             {`${e.receiverUsers.first_name} ${e.receiverUsers.last_name}`}
+                          </span>
+                          <span
+                            className={`text-capitalize ${
+                              styles.nameProfileNav
+                            } ${
+                              e.receiverId === idUser && e.type === "Transfer"
+                                ? "d-block"
+                                : "d-none"
+                            }`}
+                          >
+                            {`${e.senderUsers.first_name} ${e.senderUsers.last_name}`}
                           </span>
                           <small className={`${styles.statusTrans}`}>
                             {e.type}
@@ -245,15 +321,19 @@ const Home = () => {
                         <div
                           className={`col-4 text-start pt-2 
                     ${
-                      e.receiver === idUser || e.type === "Top Up"
+                      e.receiverId === idUser ||
+                      (e.type === "Top Up" && e.type === "Transfer")
                         ? styles.colorGreen
                         : styles.colorRed
                     }
                     `}
                         >
                           <p>
-                            {e.receiver === idUser ? " + " : " - "}Rp.{" "}
-                            {numberWithCommas(e.amount)}
+                            {e.receiverId === idUser ||
+                            (e.type === "Top Up" && e.type === "Transfer")
+                              ? " + "
+                              : " - "}
+                            Rp. {numberWithCommas(e.amount)}
                           </p>
                         </div>
                       </div>

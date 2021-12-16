@@ -74,23 +74,42 @@ const History = () => {
                 <div
                   className={`col-lg-8 col-5 ms-lg-0 ms-1 d-flex flex-column ${styles.namecard}`}
                 >
-                  <span className={`text-capitalize ${styles.nameProfileNav}`}>
+                  <span
+                    className={`text-capitalize ${styles.nameProfileNav} ${
+                      e.receiverId === idUser && e.type === "Transfer"
+                        ? "d-none"
+                        : "d-block"
+                    }`}
+                  >
                     {`${e.receiverUsers.first_name} ${e.receiverUsers.last_name}`}
+                  </span>
+                  <span
+                    className={`text-capitalize ${styles.nameProfileNav} ${
+                      e.receiverId === idUser && e.type === "Transfer"
+                        ? "d-block"
+                        : "d-none"
+                    }`}
+                  >
+                    {`${e.senderUsers.first_name} ${e.senderUsers.last_name}`}
                   </span>
                   <small className={`${styles.statusTrans}`}>{e.type}</small>
                 </div>
                 <div
                   className={`col-lg-3 col-4 text-lg-end pe-lg-5 pt-2 
                   ${
-                    e.receiver === idUser || e.type === "Top Up"
+                    e.receiverId === idUser ||
+                    (e.type === "Top Up" && e.type === "Transfer")
                       ? styles.colorGreen
                       : styles.colorRed
                   }
                     `}
                 >
                   <p>
-                    {e.receiver === idUser ? " + " : " - "}Rp.{" "}
-                    {numberWithCommas(e.amount)}
+                    {e.receiverId === idUser ||
+                    (e.type === "Top Up" && e.type === "Transfer")
+                      ? " + "
+                      : " - "}
+                    Rp. {numberWithCommas(e.amount)}
                   </p>
                 </div>
                 {/* </div> */}
